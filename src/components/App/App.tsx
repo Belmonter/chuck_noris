@@ -1,24 +1,17 @@
 import React from 'react';
 import Container from "../../styledComponents/Container/Container";
-import ButtonsMenu from "../ButtonsMenu/ButtonsMenu";
-import JokesList from "../JokesList/JokesList";
-import styled from "styled-components";
-
-const StyledApp = styled.div`
-  margin-top: 30px;
-`
+import JokesList from "../../pages/JokesList/JokesList";
+import {Route, Routes} from "react-router-dom";
+import FavoriteJokes from "../../pages/FavouriteJokesList/FavoriteJokes";
 
 function App() {
-  let result;
-
-  if (result) console.log(result)
 
   return (
     <Container>
-      <StyledApp>
-        <ButtonsMenu/>
-        <JokesList/>
-      </StyledApp>
+      <Routes>
+        <Route path={'/'} element={<JokesList/>}/>
+        <Route path={'/favourites'} element={<FavoriteJokes/>}/>
+      </Routes>
     </Container>
   );
 }

@@ -33,7 +33,6 @@ function Joke({joke}: JokeProps) {
 
   const onHeartClick = () => {
     setActive((active) => !active)
-
   }
 
   return (

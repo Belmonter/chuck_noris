@@ -9,7 +9,7 @@ const StyledContainer = styled.div<ContainerProps>`
   max-width: 1280px;
   box-sizing: content-box;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 15px;
 `
 
 function Container({children}: ContainerProps) {

@@ -6,6 +6,7 @@ interface FlexProps {
   align: string,
   justify: string,
   margin: string,
+  gap?: string,
   children: JSX.Element,
 }
 
@@ -15,6 +16,7 @@ const StyledFlex = styled.div<FlexProps>`
   align-items: ${({align}) => align || 'stretch'};
   justify-content: ${({justify}) => justify || 'stretch'};
   margin: ${({margin}) => margin || '0'};
+  column-gap: ${({gap}) => gap || '0'};
 `
 
 function Flex(props: FlexProps) {

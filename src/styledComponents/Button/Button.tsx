@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 interface ButtonProps {
   children: JSX.Element,
-  getJoke: Function,
+  onClick?: Function,
 }
 
 const StyledButton = styled.button`
@@ -21,7 +21,7 @@ const StyledButton = styled.button`
 
 function Button(props: ButtonProps) {
   return (
-    <StyledButton onClick={() => props.getJoke()}>
+    <StyledButton onClick={() => props.onClick ? props.onClick() : null}>
       {props.children}
     </StyledButton>
   );
