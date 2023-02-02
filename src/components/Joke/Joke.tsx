@@ -1,44 +1,33 @@
-import React, {useState} from 'react';
-import styled from "styled-components";
+import React from 'react';
 import heart from '../../assets/img/svg/heart.svg'
 import redHeart from '../../assets/img/svg/red_heart.svg'
+import {useAppDispatch} from "../../redux/hooks";
+import {addFavourite, deleteFavouriteJoke} from "../../redux/slice/JokesSlice";
+import {StyledJoke, Styles} from './Styles'
 
 
 interface JokeProps {
-  joke: string
+  joke: string,
+  ind: number,
+  favourite?: boolean,
+  favouriteList?: boolean,
 }
 
-const StyledJoke = styled.div`
-  padding: 5px;
-  font-size: 18px;
-  &:not(:last-child) {
-      margin-bottom: 10px;
-  }
-  border: 1px solid green;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-`
-
-const StyledHeart = styled.img`
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-`
-
-function Joke({joke}: JokeProps) {
-  const [active, setActive] = useState(false)
+function Joke({joke, ind, favourite, favouriteList}: JokeProps) {
+  const dispatch = useAppDispatch();
 
   const onHeartClick = () => {
-    setActive((active) => !active)
+    if (!favouriteList) {
+      dispatch(addFavourite({ind, favourite: !favourite}))
+    } else {
+      dispatch(deleteFavouriteJoke({listInd: ind, joke}))
+    }
   }
 
   return (
     <StyledJoke>
       <span>{joke}</span>
-      <StyledHeart src={active ? redHeart : heart} alt="heart" onClick={onHeartClick}/>
+      <Styles src={favourite ? redHeart : heart} alt="heart" onClick={onHeartClick}/>
     </StyledJoke>
   );
 }

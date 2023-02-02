@@ -5,12 +5,12 @@ import {useNavigate} from "react-router-dom";
 function FavouriteBtn() {
   const navigate = useNavigate();
 
-  const clickHandle = () => {
+  const onClick = () => {
     navigate('/favourites')
   }
 
   return (
-    <Button onClick={clickHandle}>
+    <Button onClick={onClick}>
       <span>Favourite List</span>
     </Button>
   );

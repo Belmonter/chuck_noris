@@ -4,6 +4,7 @@ import GenerateJokeBtn from "../GenerateJokeBtn/GenerateJokeBtn";
 import FavouriteBtn from "../FavouriteBtn/FavouriteBtn";
 
 function BasicButtonsMenu() {
+
   return (
     <Flex direction={'row'} align={'center'} justify={'center'} margin={'0'} gap={'10px'}>
       <>
